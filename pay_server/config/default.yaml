@@ -1,0 +1,4 @@
+hf:
+  id: $CLIENT_ID
+  secret: $CLIENT_SECRET
+  redirect_uri: http://localhost:3000/auth/hf/callback

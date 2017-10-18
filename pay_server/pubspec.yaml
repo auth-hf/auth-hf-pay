@@ -1,0 +1,10 @@
+name: pay_server
+dependencies:
+  angel_auth: ^1.1.0-alpha
+  angel_configuration: ^1.1.0-alpha
+  angel_framework: ^1.1.0-alpha
+  angel_mongo: ^1.0.0
+  oauth2: ^1.0.0
+dev_dependencies:
+  angel_test: ^1.1.0-alpha
+  test: ^0.12.0
