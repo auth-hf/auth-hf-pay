@@ -1,8 +1,12 @@
-name: pay_web
+name: pay_hf
 dependencies:
+  angel_websocket: ^1.0.0
   angular: ^4.0.0
   angular_forms: ^1.0.0
   angular_router: ^1.0.0
+  pay_common:
+    path: ../pay_common
+  stripe_facade: ^1.0.0
 dev_dependencies:
   browser: ^0.10.0
   dart_to_js_script_rewriter: ^1.0.0
