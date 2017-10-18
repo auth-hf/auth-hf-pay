@@ -7,18 +7,18 @@ import 'package:uuid/uuid.dart';
 Future configureServer(Angel app) async {}
 
 class AuthHFStrategy extends AuthStrategy {
-  static final Uri authorizationEndpoint =
-          Uri.parse('https://auth-hf.com/oauth2/authorize'),
-      tokenEndpoint = Uri.parse('https://auth-hf.com/oauth2/token');
-
   final String clientId, clientSecret;
+  final Uri authorizationEndpoint, tokenEndpoint, callEndpoint;
   final Uri redirectUri;
   final Uuid _uuid = new Uuid();
 
-  AuthHFStrategy(Map config)
+  AuthHFStrategy(String baseUrl, Map config)
       : clientId = config['id'],
         clientSecret = config['secret'],
-        redirectUri = Uri.parse(config['redirect_uri']);
+        redirectUri = Uri.parse(config['redirect_uri']),
+        authorizationEndpoint = Uri.parse('$baseUrl/oauth2/authorize'),
+        tokenEndpoint = Uri.parse('$baseUrl/oauth2/authorize'),
+        callEndpoint = Uri.parse('$baseUrl/api/call');
 
   oauth2.AuthorizationCodeGrant _createGrant() {
     return new oauth2.AuthorizationCodeGrant(
@@ -70,7 +70,7 @@ class AuthHFStrategy extends AuthStrategy {
     var client = await grant.handleAuthorizationCode(code);
 
     // Get user data
-    var response = await client.post('https://auth-hf.com/api/call', body: {
+    var response = await client.post(callEndpoint, body: {
       'endpoint': '/user',
     });
 

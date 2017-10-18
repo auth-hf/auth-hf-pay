@@ -16,6 +16,6 @@ main() async {
     }
   });
 
-  var server = await app.startServer('127.0.0.1', 3000);
+  var server = await app.startServer('127.0.0.1', 3001);
   print('Listening at http://${server.address.address}:${server.port}');
 }
