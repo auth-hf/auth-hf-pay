@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <base href="/">
     <title>Pay HF</title>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" href="https://auth-hf.com/bower_components/bulma/css/bulma.css">
-    <link rel="stylesheet" href="https://auth-hf.com/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/bulma/css/bulma.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <script type="pub/fnx_config"></script>
 </head>
 <body>
 <pay-hf>
-    Loading...
+    <section class="hero is-fullheight is-dark is-bold">
+        <nav class="navbar is-dark is-transparent is-boxed">
+            <div class="navbar-brand">
+                <a href="/" class="navbar-item">
+                    <i class="fa fa-shield"></i>
+                    &nbsp; Pay HF
+                </a>
+            </div>
+        </nav>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <h1 class="title">
+                    Loading
+                </h1>
+                <h2 class="subtitle">
+                    We'll be ready in just a moment...
+                </h2>
+                <br>
+                <h1 class="title">
+                    <i class="title fa fa-spinner fa-spin"></i>
+                </h1>
+            </div>
+        </div>
+    </section>
 </pay-hf>
 <script src="main.dart" type="application/dart"></script>
 <script src="packages/browser/dart.js"></script>

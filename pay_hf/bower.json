@@ -1,0 +1,23 @@
+{
+  "name": "auth_hf_pay",
+  "homepage": "https://github.com/auth-hf/auth-hf-pay",
+  "authors": [
+    "Tobe O <thosakwe@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./web/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bulma": "^0.6.0",
+    "font-awesome": "^4.7.0"
+  }
+}

@@ -1,1 +1,33 @@
-Ok
+<nav class="navbar is-dark is-transparent is-boxed">
+    <div class="navbar-brand">
+        <div class="navbar-item">
+            <i class="fa fa-shield"></i>
+            &nbsp; Pay HF
+        </div>
+        <button (click)="navbarActive = !navbarActive" class="button navbar-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div [class.is-active]="navbarActive" class="navbar-menu">
+        <div *ngIf="auth.user == null" class="navbar-end">
+            <a [routerLink]="['SignIn']" class="navbar-item">
+                <i class="fa fa-user">
+                </i>
+                &nbsp;Sign in
+            </a>
+        </div>
+        <div *ngIf="auth.user != null" class="navbar-end">
+            <div class="navbar-item has-dropdown">
+                <i class="fa fa-user">
+                </i>
+                &nbsp;{{ auth.user.username }}
+            </div>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+<section class="footer has-text-centered">
+    This site is not affiliated with HackForums.net in any way.
+</section>

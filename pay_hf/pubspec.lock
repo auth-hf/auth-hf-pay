@@ -193,6 +193,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  fnx_config:
+    description:
+      name: fnx_config
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.0"
   front_end:
     description:
       name: front_end

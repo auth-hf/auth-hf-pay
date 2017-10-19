@@ -2,10 +2,12 @@ import 'dart:async';
 import 'dart:collection';
 import 'package:angular/angular.dart';
 import 'package:angel_client/angel_client.dart';
+import 'package:fnx_config/fnx_config_read.dart';
 import 'package:pay_common/models.dart';
 
 @Injectable()
 class AuthService {
+  static final String hostname = fnxConfig()['hostname'];
   final Angel app;
   final Queue<Completer<User>> _onLogin = new Queue();
 
@@ -32,7 +34,7 @@ class AuthService {
   }
 
   Future login() {
-    return app.authenticateViaPopup('/auth/hf').first.then((jwt) {
+    return app.authenticateViaPopup('$hostname/auth/hf').first.then((jwt) {
       return app.authenticate(
         credentials: {
           'token': jwt,

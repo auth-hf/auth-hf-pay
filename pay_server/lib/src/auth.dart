@@ -47,8 +47,8 @@ class AuthHFStrategy extends AuthStrategy {
         redirectUri = Uri.parse(config['redirect_uri']),
         authorizationEndpoint =
             Uri.parse('https://auth-hf.com/oauth2/authorize'),
-        tokenEndpoint = Uri.parse('$baseUrl/oauth2/token'),
-        callEndpoint = Uri.parse('$baseUrl/api/call');
+        tokenEndpoint = Uri.parse('https://auth-hf.com/oauth2/token'),
+        callEndpoint = Uri.parse('https://auth-hf.com/api/call');
 
   oauth2.AuthorizationCodeGrant _createGrant() {
     return new oauth2.AuthorizationCodeGrant(
@@ -99,7 +99,7 @@ class AuthHFStrategy extends AuthStrategy {
     var code = req.query['code'];
     if (code == null) throw new AngelHttpException.badRequest();
 
-    var grant = _createGrant();
+    var grant = _createGrant()..getAuthorizationUrl(redirectUri);
     var client = await grant.handleAuthorizationCode(code);
 
     // Get user data
@@ -110,6 +110,8 @@ class AuthHFStrategy extends AuthStrategy {
     if (response.statusCode != 200 ||
         response.headers['content-type']?.contains('application/json') !=
             true) {
+      print(response.statusCode);
+      print(response.body);
       throw new StateError(
           'Could not sign you in. Did you grant us account access?');
     }
