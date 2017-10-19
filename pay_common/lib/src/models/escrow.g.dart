@@ -20,7 +20,16 @@ class Escrow extends _Escrow {
   String productId;
 
   @override
+  String uploadId;
+
+  @override
   num price;
+
+  @override
+  String gateway;
+
+  @override
+  String transactionId;
 
   @override
   DateTime createdAt;
@@ -33,7 +42,10 @@ class Escrow extends _Escrow {
       this.buyer,
       this.seller,
       this.productId,
+      this.uploadId,
       this.price,
+      this.gateway,
+      this.transactionId,
       this.createdAt,
       this.updatedAt});
 
@@ -43,7 +55,10 @@ class Escrow extends _Escrow {
         buyer: data['buyer'],
         seller: data['seller'],
         productId: data['product_id'],
+        uploadId: data['upload_id'],
         price: data['price'],
+        gateway: data['gateway'],
+        transactionId: data['transaction_id'],
         createdAt: data['created_at'] is DateTime
             ? data['created_at']
             : (data['created_at'] is String
@@ -61,7 +76,10 @@ class Escrow extends _Escrow {
         'buyer': buyer,
         'seller': seller,
         'product_id': productId,
+        'upload_id': uploadId,
         'price': price,
+        'gateway': gateway,
+        'transaction_id': transactionId,
         'created_at': createdAt == null ? null : createdAt.toIso8601String(),
         'updated_at': updatedAt == null ? null : updatedAt.toIso8601String()
       };

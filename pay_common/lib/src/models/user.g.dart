@@ -26,6 +26,15 @@ class User extends _User {
   String refreshToken;
 
   @override
+  int reputation;
+
+  @override
+  double balance;
+
+  @override
+  DateTime expiresIn;
+
+  @override
   DateTime createdAt;
 
   @override
@@ -38,6 +47,9 @@ class User extends _User {
       this.avatar,
       this.accessToken,
       this.refreshToken,
+      this.reputation,
+      this.balance,
+      this.expiresIn,
       this.createdAt,
       this.updatedAt});
 
@@ -49,6 +61,13 @@ class User extends _User {
         avatar: data['avatar'],
         accessToken: data['access_token'],
         refreshToken: data['refresh_token'],
+        reputation: data['reputation'],
+        balance: data['balance'],
+        expiresIn: data['expires_in'] is DateTime
+            ? data['expires_in']
+            : (data['expires_in'] is String
+                ? DateTime.parse(data['expires_in'])
+                : null),
         createdAt: data['created_at'] is DateTime
             ? data['created_at']
             : (data['created_at'] is String
@@ -68,6 +87,9 @@ class User extends _User {
         'avatar': avatar,
         'access_token': accessToken,
         'refresh_token': refreshToken,
+        'reputation': reputation,
+        'balance': balance,
+        'expires_in': expiresIn == null ? null : expiresIn.toIso8601String(),
         'created_at': createdAt == null ? null : createdAt.toIso8601String(),
         'updated_at': updatedAt == null ? null : updatedAt.toIso8601String()
       };

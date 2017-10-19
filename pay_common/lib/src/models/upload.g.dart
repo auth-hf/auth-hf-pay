@@ -11,16 +11,39 @@ class Upload extends _Upload {
   String id;
 
   @override
+  String userId;
+
+  @override
+  String path;
+
+  @override
+  String mimeType;
+
+  @override
+  String filename;
+
+  @override
   DateTime createdAt;
 
   @override
   DateTime updatedAt;
 
-  Upload({this.id, this.createdAt, this.updatedAt});
+  Upload(
+      {this.id,
+      this.userId,
+      this.path,
+      this.mimeType,
+      this.filename,
+      this.createdAt,
+      this.updatedAt});
 
   factory Upload.fromJson(Map data) {
     return new Upload(
         id: data['id'],
+        userId: data['user_id'],
+        path: data['path'],
+        mimeType: data['mime_type'],
+        filename: data['filename'],
         createdAt: data['created_at'] is DateTime
             ? data['created_at']
             : (data['created_at'] is String
@@ -35,6 +58,10 @@ class Upload extends _Upload {
 
   Map<String, dynamic> toJson() => {
         'id': id,
+        'user_id': userId,
+        'path': path,
+        'mime_type': mimeType,
+        'filename': filename,
         'created_at': createdAt == null ? null : createdAt.toIso8601String(),
         'updated_at': updatedAt == null ? null : updatedAt.toIso8601String()
       };

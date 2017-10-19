@@ -1,0 +1,1 @@
+export 'src/validators/product.dart';

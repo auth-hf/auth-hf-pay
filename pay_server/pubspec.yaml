@@ -4,7 +4,13 @@ dependencies:
   angel_configuration: ^1.1.0-alpha
   angel_framework: ^1.1.0-alpha
   angel_mongo: ^1.0.0
+  angel_relations: ^1.0.0
+  angel_security: ^1.0.0
+  angel_websocket: ^1.1.0-alpha
   oauth2: ^1.0.0
+  pay_common:
+    path: ../pay_common
+  stripe: ^1.2.2
 dev_dependencies:
   angel_test: ^1.1.0-alpha
   test: ^0.12.0

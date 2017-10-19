@@ -1,5 +1,7 @@
 base_url: $BASE_URL
-hf:
+mongo_db: $MONGO_DB
+jwt_secret: WB7cuc_njxjKAb=9ztj98aQxq_Z!@hRn
+auth_hf:
   id: $CLIENT_ID
   secret: $CLIENT_SECRET
-  redirect_uri: http://localhost:3000/auth/hf/callback
+  redirect_uri: http://localhost:3001/auth/hf/callback

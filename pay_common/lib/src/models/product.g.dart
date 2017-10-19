@@ -23,7 +23,7 @@ class Product extends _Product {
   String coverImage;
 
   @override
-  double price;
+  num price;
 
   @override
   DateTime createdAt;
